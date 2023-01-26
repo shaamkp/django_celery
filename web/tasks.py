@@ -9,10 +9,11 @@ from web.models import CsvFiles
 
 @shared_task(bind=True)
 def generate_csv(self,*args, **kwargs):
+    print("okokokokokok")
     number = args[0]
     file_name = args[1]
     
-    with open(f'media/csv-files/{file_name}.csv', 'w', newline='') as csvfile:
+    with open(f'media/web/csv-files/{file_name}.csv', 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile, delimiter=',',quoting=csv.QUOTE_MINIMAL)
         for i in range(int(number)):
             res = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))

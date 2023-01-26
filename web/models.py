@@ -5,7 +5,7 @@ from django.db import models
 
 
 def get_csv_file_path(instance, filename):
-    upload_path = f"web/media/csv-files"
+    upload_path = f"media/web/csv-files"
     return os.path.join(upload_path, filename)
 
 
